@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b12">
+  <meta name="description" content="Hier entsteht etwas gigantisch Cooles. Die private Webseite bbs141.de bekommt gerade ein neues Universum. Schau bald wieder vorbei.">
+  <meta name="color-scheme" content="dark">
+  <meta name="referrer" content="no-referrer">
+  <title>Hier entsteht etwas gigantisch Cooles · bbs141.de</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23090b12'/%3E%3Cpath d='m18 23-9 9 9 9m28-18 9 9-9 9M37 16 27 48' fill='none' stroke='%2379f7eb' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <style>
+    /* Eigenständige Seite: alle Schriften, Grafiken und Effekte bleiben lokal. */
+    :root {
+      color-scheme: dark;
+      --bg: #090b12;
+      --text: #f2f3fa;
+      --muted: #a3a9bc;
+      --cyan: #79f7eb;
+      --violet: #b298ff;
+      --line: rgba(183, 197, 232, .14);
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { background: var(--bg); }
+    body { margin: 0; color: var(--text); -webkit-font-smoothing: antialiased; }
+    ::selection { background: #79f7eb; color: #090b12; }
+    .page { min-height: 100vh; min-height: 100svh; position: relative; isolation: isolate; overflow: hidden; }
+    .page::before {
+      content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
+      background: radial-gradient(ellipse at 83% 32%, #35235838, transparent 45%),
+                  radial-gradient(ellipse at 58% 63%, #12414220, transparent 42%);
+    }
+    .page::after {
+      content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+      background-image: radial-gradient(#91a6cc38 .7px, transparent .9px);
+      background-size: 46px 46px;
+      mask-image: linear-gradient(90deg, transparent 25%, #000 100%);
+    }
+    .wrap { width: min(1320px, calc(100% - 112px)); margin-inline: auto; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 35px; border-bottom: 1px solid var(--line); }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-size: 21px; font-weight: 700; letter-spacing: -.7px; }
+    .brand-icon { width: 33px; height: 33px; color: var(--cyan); }
+    .brand span { color: var(--muted); font-weight: 400; }
+    .mono { font-family: Consolas, "SFMono-Regular", monospace; }
+    .top-note { color: var(--muted); font-size: 11px; letter-spacing: .17em; text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
+    .status-dot { width: 6px; height: 6px; flex: none; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 13px #79f7eb80; }
+    main { padding-block: clamp(65px, 9vh, 110px) 52px; }
+    .hero { display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: 0; }
+    .copy { position: relative; z-index: 2; }
+    .eyebrow { margin: 0 0 29px; display: flex; align-items: center; gap: 12px; color: var(--cyan); font-size: 11px; letter-spacing: .19em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 24px; height: 1px; background: currentColor; }
+    h1 { font-size: clamp(44px, 5.7vw, 88px); font-weight: 750; line-height: 1.04; letter-spacing: -.065em; margin: 0; }
+    h1 .line { display: block; }
+    h1 .accent { display: block; width: fit-content; color: var(--cyan); background: linear-gradient(100deg, #79f7eb 4%, #8fc9ff 49%, #b298ff 93%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .subtitle { max-width: 395px; margin: 29px 0 0; font-size: clamp(16px, 1.5vw, 19px); line-height: 1.65; color: var(--muted); }
+    .subtitle span { display: block; }
+    .build-tag { display: inline-flex; align-items: center; gap: 10px; border: 1px solid #79f7eb30; border-radius: 7px; background: #79f7eb06; padding: 12px 15px; margin-top: 30px; color: #c0eee9; font-size: 12px; letter-spacing: .025em; }
+    .build-tag svg { width: 15px; height: 15px; color: var(--cyan); flex: none; }
+    .universe { position: relative; width: 115%; margin-left: -4%; aspect-ratio: 1; display: grid; place-items: center; }
+    .universe::before { content: ""; position: absolute; inset: 17%; border-radius: 50%; background: #7c56ff; opacity: .09; filter: blur(55px); }
+    .orbit-art { width: 100%; height: auto; overflow: visible; }
+    .ring-slow { transform-origin: 300px 300px; animation: orbit 85s linear infinite; }
+    .ring-reverse { transform-origin: 300px 300px; animation: orbit 110s linear infinite reverse; }
+    .core-light { animation: breathe 7s ease-in-out infinite; }
+    .star { animation: twinkle 6s ease-in-out infinite; }
+    .star.delay { animation-delay: -3s; }
+    .coordinate { position: absolute; font-size: 9px; letter-spacing: .15em; color: #9c98bb; }
+    .coordinate.top { top: 9%; right: 15%; }
+    .coordinate.bottom { bottom: 12%; left: 13%; color: var(--cyan); }
+    .orbit-label { position: absolute; right: 7%; bottom: 21%; display: flex; gap: 9px; align-items: center; font-size: 10px; letter-spacing: .11em; color: #bbb1d6; }
+    .orbit-label::before { content: ""; width: 25px; height: 1px; background: #a38bdf80; }
+    .interlude { display: flex; gap: 18px; align-items: center; padding-block: 38px 24px; color: #8c94aa; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; }
+    .interlude::after { content: ""; height: 1px; background: var(--line); flex: 1; }
+    .build-notes { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); border-radius: 12px; background: linear-gradient(115deg, #ffffff04, #ffffff01); }
+    .note { padding: 25px 28px 27px; }
+    .note + .note { border-left: 1px solid var(--line); }
+    .note-head { display: flex; align-items: center; gap: 11px; margin-bottom: 10px; }
+    .note-number { color: var(--violet); font-size: 10px; }
+    .note h2 { font-size: 14px; font-weight: 600; margin: 0; letter-spacing: -.01em; }
+    .note p { font-size: 13px; line-height: 1.7; color: var(--muted); margin: 0; }
+    footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 25px 30px; border-top: 1px solid var(--line); color: #939bad; font-size: 11px; line-height: 1.6; }
+    .footer-left { display: flex; gap: 18px; align-items: center; }
+    .footer-domain { color: #c8cddb; font-weight: 600; }
+    .footer-right { display: flex; gap: 24px; align-items: center; }
+    .animation-control { cursor: pointer; display: inline-flex; align-items: center; gap: 8px; min-height: 32px; border-radius: 3px; }
+    .pause-icon { width: 12px; height: 12px; display: flex; align-items: center; justify-content: center; gap: 3px; }
+    .pause-icon::before, .pause-icon::after { content: ""; width: 2px; height: 8px; background: currentColor; }
+    .resume-text { display: none; }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+    .animation-control:focus-within { outline: 2px solid var(--cyan); outline-offset: 5px; }
+    .page:has(#pause-motion:checked) *, .page:has(#pause-motion:checked) *::before, .page:has(#pause-motion:checked) *::after { animation-play-state: paused !important; }
+    #pause-motion:checked ~ .pause-text { display: none; }
+    #pause-motion:checked ~ .resume-text { display: inline; }
+    #pause-motion:checked ~ .pause-icon::before { width: 0; height: 0; background: none; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-left: 6px solid currentColor; }
+    #pause-motion:checked ~ .pause-icon::after { display: none; }
+    @keyframes orbit { to { transform: rotate(360deg); } }
+    @keyframes breathe { 0%, 100% { opacity: .6; } 50% { opacity: 1; } }
+    @keyframes twinkle { 0%, 100% { opacity: .3; } 50% { opacity: .85; } }
+    @media (min-width: 1600px) { main { padding-top: 105px; } }
+    @media (max-width: 1050px) {
+      .wrap { width: calc(100% - 64px); }
+      h1 { font-size: clamp(44px, 5.9vw, 68px); }
+      .universe { width: 120%; margin-left: -9%; }
+      .note { padding: 22px; }
+      .footer-right { gap: 16px; }
+    }
+    @media (max-width: 760px) {
+      .wrap { width: calc(100% - 44px); }
+      .topbar { padding-block: 23px; }
+      .top-note { font-size: 9px; letter-spacing: .09em; gap: 8px; }
+      .brand { font-size: 19px; gap: 9px; }
+      .brand-icon { width: 28px; height: 28px; }
+      main { padding-block: 54px 34px; }
+      .hero { grid-template-columns: 1fr; }
+      h1 { font-size: clamp(40px, 9.6vw, 70px); letter-spacing: -.06em; }
+      .eyebrow { margin-bottom: 24px; font-size: 10px; }
+      .subtitle { margin-top: 24px; font-size: 17px; }
+      .build-tag { margin-top: 24px; }
+      .universe { width: min(100%, 490px); margin: 0 auto -15px; }
+      .coordinate { font-size: 8px; }
+      .orbit-label { font-size: 9px; }
+      .interlude { padding-top: 15px; }
+      .build-notes { grid-template-columns: 1fr; }
+      .note { padding: 21px 23px; }
+      .note + .note { border-left: 0; border-top: 1px solid var(--line); }
+      .note p { font-size: 13px; }
+      footer { flex-direction: column; align-items: flex-start; gap: 12px; padding-block: 22px; }
+      .footer-right { width: 100%; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px; }
+    }
+    @media (max-width: 360px) {
+      .wrap { width: calc(100% - 36px); }
+      h1 { font-size: 37px; }
+      .top-note { font-size: 8px; }
+      .build-tag { font-size: 11px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; }
+      .animation-control { display: none; }
+    }
+    @media (forced-colors: active) {
+      h1 .accent { background: none; -webkit-text-fill-color: currentColor; }
+      .status-dot { background: CanvasText; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar wrap">
+      <div class="brand" aria-label="bbs141.de">
+        <svg class="brand-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true"><path d="m10 11-7 7 7 7m16-14 7 7-7 7M21 6l-6 24" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div>bbs141<span>.de</span></div>
+      </div>
+      <div class="top-note mono"><span class="status-dot" aria-hidden="true"></span>Baustelle im All</div>
+    </header>
+
+    <main class="wrap">
+      <section class="hero" aria-labelledby="headline">
+        <div class="copy">
+          <p class="eyebrow mono">Ein kleines Stück Zukunft</p>
+          <h1 id="headline"><span class="line">Hier entsteht</span> <span class="line">etwas gigantisch</span> <span class="accent">Cooles</span></h1>
+          <p class="subtitle"><span>Wir schrauben noch am Universum.</span> Bitte etwas Geduld.</p>
+          <div class="build-tag">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m12 3 5 5M3 17l9-9M3 3l14 14M3 3h4M3 3v4m10 10h4v-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Kreatives Chaos. Große Pläne.
+          </div>
+        </div>
+
+        <div class="universe" aria-hidden="true">
+          <span class="coordinate top mono">SEKTOR / 141</span>
+          <svg class="orbit-art" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="orbit-color" x1="100" y1="160" x2="490" y2="450" gradientUnits="userSpaceOnUse"><stop stop-color="#79f7eb"/><stop offset=".5" stop-color="#8abaff"/><stop offset="1" stop-color="#a381ff"/></linearGradient>
+              <radialGradient id="sphere" cx="0" cy="0" r="1" gradientTransform="translate(252 238) rotate(51) scale(267)" gradientUnits="userSpaceOnUse"><stop stop-color="#272c46"/><stop offset=".48" stop-color="#151824"/><stop offset=".8" stop-color="#0c0e18"/><stop offset="1" stop-color="#080a11"/></radialGradient>
+              <linearGradient id="rim" x1="205" y1="202" x2="399" y2="398" gradientUnits="userSpaceOnUse"><stop stop-color="#8bf9ed"/><stop offset=".35" stop-color="#79f7eb" stop-opacity=".14"/><stop offset=".65" stop-color="#ae88ff" stop-opacity=".13"/><stop offset="1" stop-color="#b697ff"/></linearGradient>
+              <radialGradient id="halo"><stop offset=".55" stop-color="#8873ff" stop-opacity="0"/><stop offset=".73" stop-color="#8873ff" stop-opacity=".11"/><stop offset="1" stop-color="#8873ff" stop-opacity="0"/></radialGradient>
+              <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="3"/></filter>
+            </defs>
+            <circle cx="300" cy="300" r="220" fill="url(#halo)"/>
+            <g stroke="#a9a5cc" stroke-opacity=".12">
+              <circle cx="300" cy="300" r="231" stroke-dasharray="2 9"/>
+              <circle cx="300" cy="300" r="194"/>
+              <path d="M300 48v23m0 458v23M48 300h23m458 0h23"/>
+              <path d="m132 132 9 9m318 318 9 9m0-336-9 9M141 459l-9 9"/>
+            </g>
+            <g class="ring-slow">
+              <circle cx="300" cy="300" r="231" stroke="url(#orbit-color)" stroke-opacity=".6" stroke-dasharray="82 1370" transform="rotate(-75 300 300)"/>
+              <circle cx="300" cy="69" r="4" fill="#b298ff"/>
+              <circle cx="300" cy="69" r="9" stroke="#b298ff" stroke-opacity=".3"/>
+              <circle cx="100" cy="416" r="3" fill="#79f7eb"/>
+            </g>
+            <g transform="rotate(-31 300 300)">
+              <ellipse cx="300" cy="300" rx="257" ry="85" stroke="url(#orbit-color)" stroke-opacity=".24"/>
+              <ellipse cx="300" cy="300" rx="237" ry="75" stroke="url(#orbit-color)" stroke-opacity=".12"/>
+            </g>
+            <g class="ring-reverse"><ellipse cx="300" cy="300" rx="145" ry="205" transform="rotate(28 300 300)" stroke="url(#orbit-color)" stroke-opacity=".19" stroke-dasharray="3 7"/></g>
+            <circle cx="300" cy="300" r="130" fill="url(#sphere)" stroke="url(#rim)" stroke-width="1.3"/>
+            <path d="M192 228a130 130 0 0 1 105-58M351 419a130 130 0 0 0 77-94" class="core-light" stroke="url(#orbit-color)" stroke-width="5" filter="url(#glow)"/>
+            <path d="M192 228a130 130 0 0 1 105-58M351 419a130 130 0 0 0 77-94" stroke="url(#orbit-color)" stroke-width="1.6"/>
+            <ellipse cx="300" cy="300" rx="115" ry="130" stroke="#b0b8e0" stroke-opacity=".045"/>
+            <path d="M173 279c77-38 175-38 253 0M173 321c77 38 175 38 253 0" stroke="#b0b8e0" stroke-opacity=".05"/>
+            <text x="300" y="322" text-anchor="middle" fill="#d4d8ed" font-family="'Segoe UI', Arial, sans-serif" font-size="83" font-weight="200" letter-spacing="-6">141</text>
+            <text x="300" y="347" text-anchor="middle" fill="#8991ae" font-family="Consolas, monospace" font-size="8" letter-spacing="4">IDEEN IM ORBIT</text>
+            <path d="M80 369c-12 49 69 46 146 18 77-28 171-83 233-137 46-41 69-76 48-88" stroke="url(#orbit-color)" stroke-width="1.6"/>
+            <path d="M80 369c-12 49 69 46 146 18 77-28 171-83 233-137 46-41 69-76 48-88" stroke="url(#orbit-color)" stroke-width="4" stroke-opacity=".18" filter="url(#glow)"/>
+            <circle cx="457" cy="251" r="4" fill="#a5bdff"/><circle cx="457" cy="251" r="8" stroke="#a5bdff" stroke-opacity=".25"/>
+            <g stroke="#79f7eb" stroke-linecap="round" class="star"><path d="M133 208v10m-5-5h10"/><path d="M450 441v8m-4-4h8"/></g>
+            <g fill="#c6b4ff" class="star delay"><circle cx="492" cy="344" r="1.8"/><circle cx="193" cy="111" r="1.5"/><circle cx="231" cy="484" r="1.4"/></g>
+          </svg>
+          <span class="coordinate bottom mono">∞ MÖGLICHKEITEN</span>
+          <span class="orbit-label mono">UNIVERSUM IM AUFBAU</span>
+        </div>
+      </section>
+
+      <div class="interlude mono">Ein Blick in die Werkstatt</div>
+      <section class="build-notes" aria-label="Baustellennotizen">
+        <article class="note"><div class="note-head"><span class="note-number mono" aria-hidden="true">01 /</span><h2>Ideen ohne Schwerkraft</h2></div><p>Wir denken groß. Die Details dürfen noch ein bisschen im Orbit kreisen.</p></article>
+        <article class="note"><div class="note-head"><span class="note-number mono" aria-hidden="true">02 /</span><h2>Mit Liebe verschraubt</h2></div><p>Hier wird getüftelt, verworfen und neu gebaut. Bis alles zusammenpasst.</p></article>
+        <article class="note"><div class="note-head"><span class="note-number mono" aria-hidden="true">03 /</span><h2>Der Countdown? Läuft nicht weg.</h2></div><p>Gut Ding braucht Raum und Zeit. Schau einfach bald wieder vorbei.</p></article>
+      </section>
+    </main>
+
+    <footer class="wrap">
+      <div class="footer-left"><span class="footer-domain">bbs141.de</span><span>Eine private Baustelle mit Aussicht.</span></div>
+      <div class="footer-right">
+        <span>Keine Cookies. Kein Tracking. Nur Vorfreude.</span>
+        <label class="animation-control" for="pause-motion"><input class="visually-hidden" type="checkbox" id="pause-motion" aria-label="Animationen pausieren"><span class="pause-icon" aria-hidden="true"></span><span class="pause-text">Animation pausieren</span><span class="resume-text">Animation fortsetzen</span></label>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
